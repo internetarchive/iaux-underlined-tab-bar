@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/internetarchive/iaux-your-webcomponent.svg?branch=master)](https://travis-ci.com/internetarchive/iaux-your-webcomponent) [![codecov](https://codecov.io/gh/internetarchive/iaux-your-webcomponent/branch/master/graph/badge.svg)](https://codecov.io/gh/internetarchive/iaux-your-webcomponent)
+![Build Status](https://github.com/internetarchive/iaux-underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
 
 # \<underlined-tab-bar>
 
