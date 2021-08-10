@@ -69,6 +69,9 @@ export class AppRoot extends LitElement {
 
     iaux-underlined-tab-bar {
       --underLineThick: 5px;
+      --mainBackgroundColor: #a38064;
+      --tabTextColor: #e9ecf0;
+      --underlineColor: #e9ecf0;
     }
   `;
 }

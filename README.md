@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-yarn add @internetarchive/underlined-tab-bar
+npm install @internetarchive/underlined-tab-bar
 ```
 ## Basic Usage
 

@@ -131,7 +131,7 @@ export class UnderlinedTabBar extends LitElement {
         height: ${lineThicknessCss};
         top: 0px;
         left: var(--underlineLeftPosition, 0px);
-        background-color: white;
+        background-color: var(--underlineColor);
         border-radius: calc(${lineThicknessCss} / 2);
       }
 
@@ -142,7 +142,7 @@ export class UnderlinedTabBar extends LitElement {
       }
 
       .headD {
-        background-color: #a38064;
+        background-color: var(--mainBackgroundColor);
         height: 70px;
         width: 100%;
         padding-top: 10px;
@@ -159,7 +159,6 @@ export class UnderlinedTabBar extends LitElement {
 
       .headding li {
         display: inline;
-        color: #d7dce2;
         font-size: 15px;
         font-family: Ariauxl, Helvetica, sans-serif;
       }
@@ -172,8 +171,8 @@ export class UnderlinedTabBar extends LitElement {
         background: none;
         border: none;
         display: inline;
-        color: #e9ecf0;
-        background-color: #a38064;
+        color: var(--tabTextColor);
+        background-color: var(--mainBackgroundColor);
         font-size: 15px;
         font-family: Ariauxl, Helvetica, sans-serif;
         padding: 10px;
