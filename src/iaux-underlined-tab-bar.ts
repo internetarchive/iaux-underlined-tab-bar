@@ -108,6 +108,9 @@ export class UnderlinedTabBar extends LitElement {
 
   static get styles(): CSSResult {
     const lineThicknessCss = css`var(--underLineThick, 5px)`;
+    const mainBackgroundColorCss = css`var(--mainBackgroundColor)`;
+    const tabTextColorCss = css`var(--tabTextColor)`;
+    const underlineColorCss = css`var(--underlineColor)`;
     return css`
       .horizontalScroll {
         padding-bottom: 10px;
@@ -131,7 +134,7 @@ export class UnderlinedTabBar extends LitElement {
         height: ${lineThicknessCss};
         top: 0px;
         left: var(--underlineLeftPosition, 0px);
-        background-color: var(--underlineColor);
+        background-color: ${underlineColorCss};
         border-radius: calc(${lineThicknessCss} / 2);
       }
 
@@ -142,7 +145,7 @@ export class UnderlinedTabBar extends LitElement {
       }
 
       .headD {
-        background-color: var(--mainBackgroundColor);
+        background-color: ${mainBackgroundColorCss};
         height: 70px;
         width: 100%;
         padding-top: 10px;
@@ -171,8 +174,8 @@ export class UnderlinedTabBar extends LitElement {
         background: none;
         border: none;
         display: inline;
-        color: var(--tabTextColor);
-        background-color: var(--mainBackgroundColor);
+        color: ${tabTextColorCss};
+        background-color: ${mainBackgroundColorCss};
         font-size: 15px;
         font-family: Ariauxl, Helvetica, sans-serif;
         padding: 10px;
