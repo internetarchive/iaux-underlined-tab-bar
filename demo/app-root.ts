@@ -73,5 +73,9 @@ export class AppRoot extends LitElement {
       --tabTextColor: #e9ecf0;
       --underlineColor: #e9ecf0;
     }
+
+    iaux-underlined-tab-bar {
+      --loadingDotColor: #e9ecf0;
+    }
   `;
 }

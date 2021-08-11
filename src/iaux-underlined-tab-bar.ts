@@ -125,7 +125,6 @@ export class UnderlinedTabBar extends LitElement {
         background-color: none;
         margin-top: 12px;
         margin-left: 10px;
-        color: white;
       }
 
       .underLine {
@@ -149,7 +148,6 @@ export class UnderlinedTabBar extends LitElement {
         height: 70px;
         width: 100%;
         padding-top: 10px;
-        color: white;
         font-size: 18px;
         margin-top: 5px;
       }
