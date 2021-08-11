@@ -123,7 +123,6 @@ export class UnderlinedTabBar extends LitElement {
         width: 65px;
         height: 17px;
         background-color: none;
-        margin-top: 12px;
         margin-left: 10px;
       }
 
@@ -145,17 +144,14 @@ export class UnderlinedTabBar extends LitElement {
 
       .headD {
         background-color: ${mainBackgroundColorCss};
-        height: 70px;
         width: 100%;
-        padding-top: 10px;
         font-size: 18px;
-        margin-top: 5px;
       }
+
       .headD ul {
         display: flex;
         flex-wrap: nowrap;
         margin-bottom: 0;
-        padding-left: 10;
       }
 
       .headding li {
@@ -176,7 +172,6 @@ export class UnderlinedTabBar extends LitElement {
         background-color: ${mainBackgroundColorCss};
         font-size: 15px;
         font-family: Ariauxl, Helvetica, sans-serif;
-        padding: 10px;
         white-space: nowrap;
       }
       :host {

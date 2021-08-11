@@ -44,19 +44,20 @@ export class AppRoot extends LitElement {
       <button @click=${this.indexSelect}>index select</button>
       <button @click=${this.underlineWideInc}>line width increase</button>
       <button @click=${this.underlineWideDec}>line width decrease</button>
-
-      <iaux-underlined-tab-bar
-        @itemclicked=${this.itemClicked}
-        .entries=${[
-          { displayName: 'UPLOADS' },
-          { displayName: 'POSTS' },
-          { displayName: 'REVIEWS' },
-          { displayName: 'COLLECTIONS' },
-          { displayName: 'LOANS' },
-          { displayName: 'WEB ARCHIVE' },
-        ]}
-      >
-      </iaux-underlined-tab-bar>
+      <div class="tab-bar-container">
+        <iaux-underlined-tab-bar
+          @itemclicked=${this.itemClicked}
+          .entries=${[
+            { displayName: 'UPLOADS' },
+            { displayName: 'POSTS' },
+            { displayName: 'REVIEWS' },
+            { displayName: 'COLLECTIONS' },
+            { displayName: 'LOANS' },
+            { displayName: 'WEB ARCHIVE' },
+          ]}
+        >
+        </iaux-underlined-tab-bar>
+      </div>
     `;
   }
 
@@ -67,15 +68,20 @@ export class AppRoot extends LitElement {
       color: var(--your-webcomponent-text-color, #000);
     }
 
-    iaux-underlined-tab-bar {
-      --underLineThick: 5px;
-      --mainBackgroundColor: #a38064;
-      --tabTextColor: #e9ecf0;
-      --underlineColor: #e9ecf0;
+    .tab-bar-container {
+      height: 30px;
+      background-color: blue;
     }
 
     iaux-underlined-tab-bar {
-      --loadingDotColor: #e9ecf0;
+      --underLineThick: 5px;
+      --mainBackgroundColor: none;
+      --tabTextColor: black;
+      --underlineColor: black;
+    }
+
+    iaux-underlined-tab-bar {
+      --loadingDotColor: black;
     }
   `;
 }
