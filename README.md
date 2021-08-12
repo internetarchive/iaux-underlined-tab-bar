@@ -2,13 +2,14 @@
 
 # \<underlined-tab-bar>
 
-![Underline Tab Bar](img/underline.png "Underline Tab Bar")
+![Underline Tab Bar](img/underline.png 'Underline Tab Bar')
 
 ## Installation
 
 ```bash
 npm install @internetarchive/underlined-tab-bar
 ```
+
 ## Basic Usage
 
 ```js
@@ -28,48 +29,53 @@ import '@internetarchive/underlined-tab-bar';
         ]"
       >
       </ia-underlined-tab-bar>
-<script>      
+<script>
 function itemClicked(e) {
     console.log(e.detail.index);
   }
 </script>
-  
+
 ```
 
 ## Advanced Usage
+
 ```js
 // turn on loading state
 const tabBar = document.querySelector('underlined-tab-bar');
 tabBar.isLoading = true;
 
 // resize underline
-  tabBar.widthMultiplier=0.8;
+tabBar.widthMultiplier = 0.8;
 
 // select an index
-  tabBar.selectedIndex = 3;
-
+tabBar.selectedIndex = 3;
 ```
 
 see unit tests in example app for more usage examples
 
 ### CSS Variables
+
 ```css
 <style>
 //underline thickness
   ia-underlined-tab-bar {
-      --underLineThick: 5px;
+      --tabBarUnderlineThickness: 5px;
     }
 </style>
 ```
 
 ## Local Demo with `web-dev-server`
+
 ```bash
 yarn start
 ```
+
 To run a local development server that serves the basic demo located in `demo/index.html`
 
 ## Testing with Web Test Runner
+
 To run the suite of Web Test Runner tests, run
+
 ```bash
 yarn run test
 ```
@@ -81,28 +87,35 @@ yarn run test:watch
 ```
 
 ## Linting with ESLint, Prettier, and Types
+
 To scan the project for linting errors, run
+
 ```bash
 yarn run lint
 ```
 
 You can lint with ESLint and Prettier individually as well
+
 ```bash
 yarn run lint:eslint
 ```
+
 ```bash
 yarn run lint:prettier
 ```
 
 To automatically fix many linting errors, run
+
 ```bash
 yarn run format
 ```
 
 You can format using ESLint and Prettier individually as well
+
 ```bash
 yarn run format:eslint
 ```
+
 ```bash
 yarn run format:prettier
 ```

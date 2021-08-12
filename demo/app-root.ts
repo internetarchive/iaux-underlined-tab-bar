@@ -65,23 +65,21 @@ export class AppRoot extends LitElement {
     :host {
       display: block;
       padding: 25px;
-      color: var(--your-webcomponent-text-color, #000);
     }
 
     .tab-bar-container {
       height: 30px;
-      background-color: blue;
+      background-color: #374f2f;
     }
 
     iaux-underlined-tab-bar {
-      --underLineThick: 5px;
-      --mainBackgroundColor: none;
-      --tabTextColor: black;
-      --underlineColor: black;
-    }
-
-    iaux-underlined-tab-bar {
-      --loadingDotColor: black;
+      --tabBarUnderlineThickness: 5px;
+      --tabBarTextColor: none;
+      --tabBarUnderlineColor: white;
+      --tabBarFontSize: 14px;
+      --tabBarLoadingDotColor: white;
+      --tabBarButtonSpacing: 10px;
+      color: white;
     }
   `;
 }

@@ -14,17 +14,16 @@ export class LoadingDots extends LitElement {
   }
 
   static get styles(): CSSResult {
-    const loadingDotColorCSS = css`var(--loadingDotColor)`;
+    const loadingDotColorCSS = css`var(--tabBarLoadingDotColor)`;
     return css`
       .spinnyCircle {
-        display: inline-block;
+        display: block;
         position: relative;
-        width: 80px;
-        height: 80px;
+        width: 58px;
+        height: 10px;
       }
       .spinnyCircle div {
         position: absolute;
-        top: 2px;
         width: 10px;
         height: 10px;
         border-radius: 50%;
@@ -32,19 +31,19 @@ export class LoadingDots extends LitElement {
         animation-timing-function: cubic-bezier(0, 1, 1, 0);
       }
       .spinnyCircle div:nth-child(1) {
-        left: 8px;
+        left: 0px;
         animation: spinnyCircle1 0.6s infinite;
       }
       .spinnyCircle div:nth-child(2) {
-        left: 8px;
+        left: 0px;
         animation: spinnyCircle2 0.6s infinite;
       }
       .spinnyCircle div:nth-child(3) {
-        left: 32px;
+        left: 24px;
         animation: spinnyCircle2 0.6s infinite;
       }
       .spinnyCircle div:nth-child(4) {
-        left: 56px;
+        left: 48px;
         animation: spinnyCircle3 0.6s infinite;
       }
       @keyframes spinnyCircle1 {

@@ -22,17 +22,13 @@ export interface TopTab {
 export class UnderlinedTabBar extends LitElement {
   @property({ type: Array }) entries: TopTab[] = [];
 
-  @property({ type: String }) title = 'Hey There';
-
-  @property({ type: Number }) counter = 0;
-
   @property({ type: Number }) selectedIndex = 0;
 
   @property({ type: Number }) widthMultiplier = 0.8;
 
   @property({ type: Boolean }) isLoading = false;
 
-  @internalProperty() firstAnimationLine = false;
+  @internalProperty() animatedUnderline = false;
 
   @query('.horizontalScroll') container!: HTMLDivElement;
 
@@ -46,10 +42,13 @@ export class UnderlinedTabBar extends LitElement {
     });
     const indexDistance = Math.abs(this.selectedIndex - index);
     const animationTime = Math.min(0.25 * indexDistance, 0.5);
-    this.style.setProperty('--underlineAnimationDuration', `${animationTime}s`);
+    this.style.setProperty(
+      '--tabBarUnderlineAnimationDuration',
+      `${animationTime}s`
+    );
     this.selectedIndex = index;
     this.dispatchEvent(event);
-    this.firstAnimationLine = true;
+    this.animatedUnderline = true;
   }
 
   private updateUnderline() {
@@ -64,8 +63,11 @@ export class UnderlinedTabBar extends LitElement {
     const centerLineMargin = (boundingRect.width - lineWidth) / 2;
     const underlineLeft =
       containerDiff + centerLineMargin + this.container.scrollLeft;
-    this.style.setProperty('--underlineLeftPosition', `${underlineLeft}px`);
-    this.style.setProperty('--underlineWidth', `${lineWidth}px`);
+    this.style.setProperty(
+      '--tabBarUnderlineLeftPosition',
+      `${underlineLeft}px`
+    );
+    this.style.setProperty('--tabBarUnderlineWidth', `${lineWidth}px`);
   }
 
   updated(changed: PropertyValues) {
@@ -93,13 +95,15 @@ export class UnderlinedTabBar extends LitElement {
                 `
             )}
             ${this.isLoading
-              ? html`<div id="loadingState">
-                  <iaux-underlined-tab-bar-loading-dots></iaux-underlined-tab-bar-loading-dots>
-                </div>`
+              ? html` <li>
+                  <div id="loadingState">
+                    <iaux-underlined-tab-bar-loading-dots></iaux-underlined-tab-bar-loading-dots>
+                  </div>
+                </li>`
               : nothing}
           </ul>
           <div
-            class="underLine ${this.firstAnimationLine ? 'animation' : ''}"
+            class="underLine ${this.animatedUnderline ? 'animation' : ''}"
           ></div>
         </div>
       </div>
@@ -107,10 +111,15 @@ export class UnderlinedTabBar extends LitElement {
   }
 
   static get styles(): CSSResult {
-    const lineThicknessCss = css`var(--underLineThick, 5px)`;
-    const mainBackgroundColorCss = css`var(--mainBackgroundColor)`;
-    const tabTextColorCss = css`var(--tabTextColor)`;
-    const underlineColorCss = css`var(--underlineColor)`;
+    const lineThicknessCss = css`var(--tabBarUnderlineThickness, 5px)`;
+    const tabFontSizeCss = css`var(--tabBarFontSize, 15px)`;
+    const tabTextColorCss = css`var(--tabBarTextColor)`;
+    const underlineColorCss = css`var(--tabBarUnderlineColor)`;
+    const buttonSpacingCss = css`var(--tabBarButtonSpacing, 10px)`;
+    const underlineWidthCss = css`var(--tabBarUnderlineWidth, 0px)`;
+    const tabBarUnderlineLeftPositionCss = css`var(--tabBarUnderlineLeftPosition, 0px)`;
+    const tabBarUnderlineAnimationDurationCss = css`var(--tabBarUnderlineAnimationDuration, 0.6s)`;
+
     return css`
       .horizontalScroll {
         padding-bottom: 10px;
@@ -120,18 +129,18 @@ export class UnderlinedTabBar extends LitElement {
 
       #loadingState {
         text-align: center;
-        width: 65px;
-        height: 17px;
         background-color: none;
-        margin-left: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
       }
 
       .underLine {
         position: relative;
-        width: var(--underlineWidth, 0px);
+        width: ${underlineWidthCss};
         height: ${lineThicknessCss};
         top: 0px;
-        left: var(--underlineLeftPosition, 0px);
+        left: ${tabBarUnderlineLeftPositionCss};
         background-color: ${underlineColorCss};
         border-radius: calc(${lineThicknessCss} / 2);
       }
@@ -139,25 +148,23 @@ export class UnderlinedTabBar extends LitElement {
       .underLine.animation {
         transition-property: left, width;
         transition-delay: 0;
-        transition-duration: var(--underlineAnimationDuration, 0.6s);
-      }
-
-      .headD {
-        background-color: ${mainBackgroundColorCss};
-        width: 100%;
-        font-size: 18px;
+        transition-duration: ${tabBarUnderlineAnimationDurationCss};
       }
 
       .headD ul {
         display: flex;
         flex-wrap: nowrap;
-        margin-bottom: 0;
+        margin: 0;
+        padding: 0;
       }
 
       .headding li {
-        display: inline;
-        font-size: 15px;
-        font-family: Ariauxl, Helvetica, sans-serif;
+        margin-right: ${buttonSpacingCss};
+        list-style: none;
+      }
+
+      li:last-child {
+        margin-right: 0;
       }
 
       button:hover {
@@ -169,14 +176,11 @@ export class UnderlinedTabBar extends LitElement {
         border: none;
         display: inline;
         color: ${tabTextColorCss};
-        background-color: ${mainBackgroundColorCss};
-        font-size: 15px;
-        font-family: Ariauxl, Helvetica, sans-serif;
+        font-size: ${tabFontSizeCss};
         white-space: nowrap;
       }
       :host {
         display: block;
-        color: var(--your-webcomponent-text-color, #000);
       }
     `;
   }
