@@ -74,11 +74,12 @@ export class AppRoot extends LitElement {
 
     iaux-underlined-tab-bar {
       --tabBarUnderlineThickness: 5px;
-      --tabBarTextColor: none;
+      --tabBarTextColor: white;
       --tabBarUnderlineColor: white;
       --tabBarFontSize: 14px;
       --tabBarLoadingDotColor: white;
       --tabBarButtonSpacing: 10px;
+      --tabBarSelectedTextColor: black;
       color: white;
     }
   `;
