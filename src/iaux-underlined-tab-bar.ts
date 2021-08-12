@@ -113,6 +113,7 @@ export class UnderlinedTabBar extends LitElement {
   static get styles(): CSSResult {
     const lineThicknessCss = css`var(--tabBarUnderlineThickness, 5px)`;
     const tabFontSizeCss = css`var(--tabBarFontSize, 15px)`;
+    const tabBarFontWeightCss = css`var(--tabBarFontWeight, 400)`;
     const tabTextColorCss = css`var(--tabBarTextColor)`;
     const underlineColorCss = css`var(--tabBarUnderlineColor)`;
     const tabBarSelectedTextColorCss = css`var(--tabBarSelectedTextColor)`;
@@ -179,6 +180,7 @@ export class UnderlinedTabBar extends LitElement {
         color: ${tabTextColorCss};
         font-size: ${tabFontSizeCss};
         white-space: nowrap;
+        font-weight: ${tabBarFontWeightCss};
       }
 
       button.active {
