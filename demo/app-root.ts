@@ -11,12 +11,12 @@ export class AppRoot extends LitElement {
     console.log(e.detail.index);
   }
 
-  private doSomething() {
+  private setEntries() {
     this.tabBar.entries = [
       { displayName: 'CHANGE' },
       { displayName: 'TITLE' },
       { displayName: 'OPTIONS' },
-      { displayName: 'ACITIVE' },
+      { displayName: 'ACTIVE' },
     ];
   }
 
@@ -25,8 +25,10 @@ export class AppRoot extends LitElement {
     this.tabBar.isLoading = !this.tabBar.isLoading;
   }
 
-  private indexSelect() {
-    this.tabBar.selectedIndex = Math.floor(Math.random() * 6);
+  private setRandomIndex() {
+    this.tabBar.selectedIndex = Math.floor(
+      Math.random() * this.tabBar.entries.length
+    );
   }
 
   private underlineWideInc() {
@@ -37,11 +39,26 @@ export class AppRoot extends LitElement {
     this.tabBar.widthMultiplier -= 0.1;
   }
 
+  private increaseMinAnimationDuration() {
+    this.tabBar.minAnimationDuration += 1;
+  }
+
+  private increaseMaxAnimationDuration() {
+    this.tabBar.maxAnimationDuration += 1;
+  }
+
   render() {
     return html`
-      <button @click=${this.doSomething}>change options</button>
+      <button @click=${this.setEntries}>change options</button>
+      <button @click=${this.increaseMinAnimationDuration}>
+        raise min animation time
+      </button>
+      <button @click=${this.increaseMaxAnimationDuration}>
+        raise max animation time
+      </button>
+
       <button @click=${this.loadControl}>load on/off</button>
-      <button @click=${this.indexSelect}>index select</button>
+      <button @click=${this.setRandomIndex}>index select</button>
       <button @click=${this.underlineWideInc}>line width increase</button>
       <button @click=${this.underlineWideDec}>line width decrease</button>
       <div class="tab-bar-container">
@@ -69,19 +86,20 @@ export class AppRoot extends LitElement {
 
     .tab-bar-container {
       height: 30px;
-      background-color: #374f2f;
+      background-color: none;
     }
 
     iaux-underlined-tab-bar {
       --tabBarUnderlineThickness: 5px;
-      --tabBarTextColor: white;
-      --tabBarUnderlineColor: white;
+      --tabBarTextColor: grey;
+      --tabBarUnderlineColor: black;
       --tabBarFontSize: 14px;
-      --tabBarLoadingDotColor: white;
+      --tabBarLoadingDotColor: grey;
       --tabBarButtonSpacing: 10px;
       --tabBarSelectedTextColor: black;
       --tabBarFontWeight: 400;
-      color: white;
+      --tabBarLoadingDotDiameter: 10px;
+      --tabBarLoadingDotSpacing: 14px;
     }
   `;
 }
