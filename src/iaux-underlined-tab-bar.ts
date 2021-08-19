@@ -28,6 +28,10 @@ export class UnderlinedTabBar extends LitElement {
 
   @property({ type: Boolean }) isLoading = false;
 
+  @property({ type: Number }) minAnimationDuration = 0.25;
+
+  @property({ type: Number }) maxAnimationDuration = 0.5;
+
   @internalProperty() animatedUnderline = false;
 
   @query('.horizontalScroll') container!: HTMLDivElement;
@@ -41,7 +45,10 @@ export class UnderlinedTabBar extends LitElement {
       },
     });
     const indexDistance = Math.abs(this.selectedIndex - index);
-    const animationTime = Math.min(0.25 * indexDistance, 0.5);
+    const animationTime = Math.min(
+      this.minAnimationDuration * indexDistance,
+      this.maxAnimationDuration
+    );
     this.style.setProperty(
       '--tabBarUnderlineAnimationDuration',
       `${animationTime}s`
