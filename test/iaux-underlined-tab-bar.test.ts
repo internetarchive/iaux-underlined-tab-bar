@@ -13,7 +13,7 @@ describe('UnderlinedTabBar', () => {
     expect(list).to.exist;
   });
 
-  it('has a list tag', async () => {
+  it('has the correct number of list items', async () => {
     const el = await fixture<UnderlinedTabBar>(
       html`<iaux-underlined-tab-bar
         .entries=${[{ displayName: 'UPLOADS' }, { displayName: 'POSTS' }]}
@@ -24,7 +24,7 @@ describe('UnderlinedTabBar', () => {
     expect(list?.length).to.equal(2);
   });
 
-  it('has no passes', async () => {
+  it('has no list items when no entries are given', async () => {
     const el = await fixture<UnderlinedTabBar>(
       html`<iaux-underlined-tab-bar></iaux-underlined-tab-bar>`
     );
