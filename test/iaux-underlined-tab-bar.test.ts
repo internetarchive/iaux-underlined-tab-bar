@@ -47,6 +47,30 @@ describe('UnderlinedTabBar', () => {
     expect(detail.index).to.equal(0);
   });
 
+  it('initially does not contain an active class', async () => {
+    const el = await fixture<UnderlinedTabBar>(
+      html`<iaux-underlined-tab-bar .entries=${[]}></iaux-underlined-tab-bar>`
+    );
+
+    const buttons = el.shadowRoot?.querySelectorAll('button');
+    await el.updateComplete;
+    buttons?.forEach(button => {
+      expect(button?.classList.contains('active')).to.be.true;
+    });
+  });
+
+  it('has active class by default', async () => {
+    const el = await fixture<UnderlinedTabBar>(
+      html`<iaux-underlined-tab-bar
+        .entries=${[{ displayName: 'UPLOADS' }, { displayName: 'POSTS' }]}
+      ></iaux-underlined-tab-bar>`
+    );
+
+    const button = el.shadowRoot?.querySelector('button');
+    await el.updateComplete;
+    expect(button?.classList.contains('active')).to.be.true;
+  });
+
   it('adds active class to item clicked', async () => {
     const el = await fixture<UnderlinedTabBar>(
       html`<iaux-underlined-tab-bar
