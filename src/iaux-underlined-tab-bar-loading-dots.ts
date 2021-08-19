@@ -4,28 +4,35 @@ import { html, css, LitElement, customElement, CSSResult } from 'lit-element';
 export class LoadingDots extends LitElement {
   render() {
     return html`
-      <div class="spinnyCircle">
+      <span class="spinnyCircle">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
-      </div>
+      </span>
     `;
   }
 
   static get styles(): CSSResult {
     const loadingDotColorCSS = css`var(--tabBarLoadingDotColor)`;
+    const loadingDotDiameterCSS = css`var(--tabBarLoadingDotDiameter, 10px)`;
+    const loadingDotSpacingCSS = css`var(--tabBarLoadingDotSpacing, 14px)`;
+    const loadingDotCountCSS = css`var(--tabBarLoadingDotCount, 3)`;
+    const loadingDotSpaceCountCSS = css`var(--tabBarLoadingDotSpaceCount, calc(${loadingDotCountCSS}-1))`;
+    const loadingDotTotalSpacingCSS = css`var(--tabBarLoadingDotTotalSpacing, calc(${loadingDotDiameterCSS} + ${loadingDotSpacingCSS}))`;
     return css`
       .spinnyCircle {
         display: block;
         position: relative;
-        width: 58px;
-        height: 10px;
+        width: calc(
+          ${loadingDotCountCSS}*${loadingDotDiameterCSS}+ (${loadingDotSpaceCountCSS}*${loadingDotSpacingCSS})
+        );
+        height: ${loadingDotDiameterCSS};
       }
       .spinnyCircle div {
         position: absolute;
-        width: 10px;
-        height: 10px;
+        width: ${loadingDotDiameterCSS};
+        height: ${loadingDotDiameterCSS};
         border-radius: 50%;
         background-color: ${loadingDotColorCSS};
         animation-timing-function: cubic-bezier(0, 1, 1, 0);
@@ -39,11 +46,11 @@ export class LoadingDots extends LitElement {
         animation: spinnyCircle2 0.6s infinite;
       }
       .spinnyCircle div:nth-child(3) {
-        left: 24px;
+        left: ${loadingDotTotalSpacingCSS};
         animation: spinnyCircle2 0.6s infinite;
       }
       .spinnyCircle div:nth-child(4) {
-        left: 48px;
+        left: calc(2 * ${loadingDotTotalSpacingCSS});
         animation: spinnyCircle3 0.6s infinite;
       }
       @keyframes spinnyCircle1 {
@@ -67,7 +74,7 @@ export class LoadingDots extends LitElement {
           transform: translate(0, 0);
         }
         100% {
-          transform: translate(24px, 0);
+          transform: translate(${loadingDotTotalSpacingCSS}, 0);
         }
       }
     `;
