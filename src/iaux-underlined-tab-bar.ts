@@ -59,9 +59,9 @@ export class UnderlinedTabBar extends LitElement {
   }
 
   private updateUnderline() {
-    const buttonSelected = this.listOfButtons[this.selectedIndex];
-    if (!buttonSelected) return;
-    const boundingRect = buttonSelected.getBoundingClientRect();
+    const selectedButton = this.listOfButtons[this.selectedIndex];
+    if (!selectedButton) return;
+    const boundingRect = selectedButton.getBoundingClientRect();
     const containerRect = this.container.getBoundingClientRect();
     const containerDiff = boundingRect.x - containerRect.x;
 
@@ -85,9 +85,9 @@ export class UnderlinedTabBar extends LitElement {
 
   render() {
     return html`
-      <div class="headD">
+      <div class="head">
         <div class="horizontalScroll">
-          <ul class="headding">
+          <ul class="heading">
             ${this.entries.map(
               (entry, index) =>
                 html`
@@ -160,14 +160,14 @@ export class UnderlinedTabBar extends LitElement {
         transition-duration: ${tabBarUnderlineAnimationDurationCss};
       }
 
-      .headD ul {
+      .head ul {
         display: flex;
         flex-wrap: nowrap;
         margin: 0;
         padding: 0;
       }
 
-      .headding li {
+      .heading li {
         margin-right: ${buttonSpacingCss};
         list-style: none;
       }
