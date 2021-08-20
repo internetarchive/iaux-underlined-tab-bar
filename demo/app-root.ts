@@ -6,7 +6,7 @@ import type { UnderlinedTabBar } from '../src/iaux-underlined-tab-bar';
 export class AppRoot extends LitElement {
   @query('iaux-underlined-tab-bar') tabBar!: UnderlinedTabBar;
 
-  private itemClicked(e: CustomEvent) {
+  private logEventDetails(e: CustomEvent) {
     console.log(e);
     console.log(e.detail.index);
   }
@@ -31,11 +31,11 @@ export class AppRoot extends LitElement {
     );
   }
 
-  private underlineWideInc() {
+  private increaseUnderlineWidth() {
     this.tabBar.widthMultiplier += 0.1;
   }
 
-  private underlineWideDec() {
+  private decreaseUnderlineWidth() {
     this.tabBar.widthMultiplier -= 0.1;
   }
 
@@ -59,11 +59,11 @@ export class AppRoot extends LitElement {
 
       <button @click=${this.loadControl}>load on/off</button>
       <button @click=${this.setRandomIndex}>index select</button>
-      <button @click=${this.underlineWideInc}>line width increase</button>
-      <button @click=${this.underlineWideDec}>line width decrease</button>
+      <button @click=${this.increaseUnderlineWidth}>line width increase</button>
+      <button @click=${this.decreaseUnderlineWidth}>line width decrease</button>
       <div class="tab-bar-container">
         <iaux-underlined-tab-bar
-          @itemclicked=${this.itemClicked}
+          @itemclicked=${this.logEventDetails}
           .entries=${[
             { displayName: 'UPLOADS' },
             { displayName: 'POSTS' },
