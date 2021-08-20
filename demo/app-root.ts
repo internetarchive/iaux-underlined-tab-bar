@@ -97,6 +97,7 @@ export class AppRoot extends LitElement {
       --tabBarLoadingDotColor: grey;
       --tabBarButtonSpacing: 10px;
       --tabBarSelectedTextColor: black;
+      --tabBarHoverTextColor: pink;
       --tabBarFontWeight: 400;
       --tabBarLoadingDotDiameter: 10px;
       --tabBarLoadingDotSpacing: 14px;
