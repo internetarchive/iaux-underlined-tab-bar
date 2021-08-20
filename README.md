@@ -57,7 +57,7 @@ see unit tests in example app for more usage examples
 
 ```css
 <style>
-//underline thickness
+/*underline thickness*/
   ia-underlined-tab-bar {
       --tabBarUnderlineThickness: 5px;
     }
