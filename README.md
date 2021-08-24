@@ -1,6 +1,6 @@
 ![Build Status](https://github.com/internetarchive/underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
 
-# \<underlined-tab-bar>
+# \<ia-underlined-tab-bar>
 
 ![Underline Tab Bar](img/underline.png 'Underline Tab Bar')
 
@@ -41,7 +41,7 @@ function itemClicked(e) {
 
 ```js
 // turn on loading state
-const tabBar = document.querySelector('underlined-tab-bar');
+const tabBar = document.querySelector('ia-underlined-tab-bar');
 tabBar.isLoading = true;
 
 // resize underline
