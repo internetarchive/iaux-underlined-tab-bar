@@ -1,12 +1,12 @@
 import { html, fixture, expect, oneEvent } from '@open-wc/testing';
 
-import type { UnderlinedTabBar } from '../src/iaux-underlined-tab-bar';
-import '../src/iaux-underlined-tab-bar';
+import type { UnderlinedTabBar } from '../src/ia-underlined-tab-bar';
+import '../src/ia-underlined-tab-bar';
 
 describe('UnderlinedTabBar', () => {
   it('has a list tag', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar></iaux-underlined-tab-bar>`
+      html`<ia-underlined-tab-bar></ia-underlined-tab-bar>`
     );
 
     const list = el.shadowRoot?.querySelector('ul');
@@ -15,9 +15,9 @@ describe('UnderlinedTabBar', () => {
 
   it('has the correct number of list items', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar
+      html`<ia-underlined-tab-bar
         .entries=${[{ displayName: 'UPLOADS' }, { displayName: 'POSTS' }]}
-      ></iaux-underlined-tab-bar>`
+      ></ia-underlined-tab-bar>`
     );
 
     const list = el.shadowRoot?.querySelectorAll('li');
@@ -26,7 +26,7 @@ describe('UnderlinedTabBar', () => {
 
   it('has no list items when no entries are given', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar></iaux-underlined-tab-bar>`
+      html`<ia-underlined-tab-bar></ia-underlined-tab-bar>`
     );
 
     const list = el.shadowRoot?.querySelector('li');
@@ -35,9 +35,9 @@ describe('UnderlinedTabBar', () => {
 
   it('emits an event when item is clicked on', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar
+      html`<ia-underlined-tab-bar
         .entries=${[{ displayName: 'UPLOADS' }, { displayName: 'POSTS' }]}
-      ></iaux-underlined-tab-bar>`
+      ></ia-underlined-tab-bar>`
     );
 
     const button = el.shadowRoot?.querySelector('button');
@@ -49,7 +49,7 @@ describe('UnderlinedTabBar', () => {
 
   it('initially does not contain an active class', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar .entries=${[]}></iaux-underlined-tab-bar>`
+      html`<ia-underlined-tab-bar .entries=${[]}></ia-underlined-tab-bar>`
     );
 
     const buttons = el.shadowRoot?.querySelectorAll('button');
@@ -61,9 +61,9 @@ describe('UnderlinedTabBar', () => {
 
   it('has active class by default', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar
+      html`<ia-underlined-tab-bar
         .entries=${[{ displayName: 'UPLOADS' }, { displayName: 'POSTS' }]}
-      ></iaux-underlined-tab-bar>`
+      ></ia-underlined-tab-bar>`
     );
 
     const button = el.shadowRoot?.querySelector('button');
@@ -73,9 +73,9 @@ describe('UnderlinedTabBar', () => {
 
   it('adds active class to item clicked', async () => {
     const el = await fixture<UnderlinedTabBar>(
-      html`<iaux-underlined-tab-bar
+      html`<ia-underlined-tab-bar
         .entries=${[{ displayName: 'UPLOADS' }, { displayName: 'POSTS' }]}
-      ></iaux-underlined-tab-bar>`
+      ></ia-underlined-tab-bar>`
     );
 
     const button = el.shadowRoot?.querySelector('button');
@@ -87,9 +87,7 @@ describe('UnderlinedTabBar', () => {
   describe('LoadingState', () => {
     it('produces loading state when button is set to true', async () => {
       const el = await fixture<UnderlinedTabBar>(
-        html`<iaux-underlined-tab-bar
-          ?isLoading=${true}
-        ></iaux-underlined-tab-bar>`
+        html`<ia-underlined-tab-bar ?isLoading=${true}></ia-underlined-tab-bar>`
       );
 
       const loader = el.shadowRoot?.querySelector('#loadingState');
@@ -98,9 +96,9 @@ describe('UnderlinedTabBar', () => {
 
     it('doesnt produce loading state when button is set to false', async () => {
       const el = await fixture<UnderlinedTabBar>(
-        html`<iaux-underlined-tab-bar
+        html`<ia-underlined-tab-bar
           ?isLoading=${false}
-        ></iaux-underlined-tab-bar>`
+        ></ia-underlined-tab-bar>`
       );
 
       const loader = el.shadowRoot?.querySelector('#loadingState');
@@ -109,7 +107,7 @@ describe('UnderlinedTabBar', () => {
 
     it('defaults to no loading state', async () => {
       const el = await fixture<UnderlinedTabBar>(
-        html`<iaux-underlined-tab-bar></iaux-underlined-tab-bar>`
+        html`<ia-underlined-tab-bar></ia-underlined-tab-bar>`
       );
 
       const loader = el.shadowRoot?.querySelector('#loadingState');

@@ -1,4 +1,4 @@
-![Build Status](https://github.com/internetarchive/iaux-underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/internetarchive/underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
 
 # \<underlined-tab-bar>
 
@@ -57,7 +57,7 @@ see unit tests in example app for more usage examples
 
 ```css
 <style>
-/*underline thickness*/
+/* Underline thickness */
   ia-underlined-tab-bar {
       --tabBarUnderlineThickness: 5px;
     }

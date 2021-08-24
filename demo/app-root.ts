@@ -1,10 +1,10 @@
 import { html, css, LitElement, customElement, query } from 'lit-element';
-import '../src/iaux-underlined-tab-bar';
-import type { UnderlinedTabBar } from '../src/iaux-underlined-tab-bar';
+import '../src/ia-underlined-tab-bar';
+import type { UnderlinedTabBar } from '../src/ia-underlined-tab-bar';
 
 @customElement('app-root')
 export class AppRoot extends LitElement {
-  @query('iaux-underlined-tab-bar') tabBar!: UnderlinedTabBar;
+  @query('ia-underlined-tab-bar') tabBar!: UnderlinedTabBar;
 
   private logEventDetails(e: CustomEvent) {
     console.log(e);
@@ -62,7 +62,7 @@ export class AppRoot extends LitElement {
       <button @click=${this.increaseUnderlineWidth}>line width increase</button>
       <button @click=${this.decreaseUnderlineWidth}>line width decrease</button>
       <div class="tab-bar-container">
-        <iaux-underlined-tab-bar
+        <ia-underlined-tab-bar
           @itemclicked=${this.logEventDetails}
           .entries=${[
             { displayName: 'UPLOADS' },
@@ -73,7 +73,7 @@ export class AppRoot extends LitElement {
             { displayName: 'WEB ARCHIVE' },
           ]}
         >
-        </iaux-underlined-tab-bar>
+        </ia-underlined-tab-bar>
       </div>
     `;
   }
@@ -89,7 +89,7 @@ export class AppRoot extends LitElement {
       background-color: none;
     }
 
-    iaux-underlined-tab-bar {
+    ia-underlined-tab-bar {
       --tabBarUnderlineThickness: 5px;
       --tabBarTextColor: grey;
       --tabBarUnderlineColor: black;

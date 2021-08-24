@@ -11,14 +11,14 @@ import {
   CSSResult,
 } from 'lit-element';
 import { nothing } from 'lit-html';
-import './iaux-underlined-tab-bar-loading-dots';
+import './ia-underlined-tab-bar-loading-dots';
 
 export interface TopTab {
   displayName: string;
   tabTitle?: string;
 }
 
-@customElement('iaux-underlined-tab-bar')
+@customElement('ia-underlined-tab-bar')
 export class UnderlinedTabBar extends LitElement {
   @property({ type: Array }) entries: TopTab[] = [];
 
@@ -104,13 +104,13 @@ export class UnderlinedTabBar extends LitElement {
             ${this.isLoading
               ? html` <li>
                   <div id="loadingState">
-                    <iaux-underlined-tab-bar-loading-dots></iaux-underlined-tab-bar-loading-dots>
+                    <ia-underlined-tab-bar-loading-dots></ia-underlined-tab-bar-loading-dots>
                   </div>
                 </li>`
               : nothing}
           </ul>
           <div
-            class="underLine ${this.animatedUnderline ? 'animation' : ''}"
+            class="underline ${this.animatedUnderline ? 'animation' : ''}"
           ></div>
         </div>
       </div>
@@ -145,7 +145,7 @@ export class UnderlinedTabBar extends LitElement {
         align-items: center;
       }
 
-      .underLine {
+      .underline {
         position: relative;
         width: ${underlineWidthCss};
         height: ${lineThicknessCss};
@@ -155,7 +155,7 @@ export class UnderlinedTabBar extends LitElement {
         border-radius: calc(${lineThicknessCss} / 2);
       }
 
-      .underLine.animation {
+      .underline.animation {
         transition-property: left, width;
         transition-delay: 0;
         transition-duration: ${tabBarUnderlineAnimationDurationCss};
