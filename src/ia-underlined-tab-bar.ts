@@ -15,7 +15,6 @@ import './ia-underlined-tab-bar-loading-dots';
 
 export interface TopTab {
   displayName: string;
-  tabTitle?: string;
 }
 
 @customElement('ia-underlined-tab-bar')
@@ -36,7 +35,7 @@ export class UnderlinedTabBar extends LitElement {
 
   @query('.horizontalScroll') container!: HTMLDivElement;
 
-  @queryAll('button') listOfButtons!: HTMLButtonElement[];
+  @queryAll('button') buttons!: HTMLButtonElement[];
 
   private itemClicked(e: Event, index: number) {
     const event = new CustomEvent('itemclicked', {
@@ -59,7 +58,7 @@ export class UnderlinedTabBar extends LitElement {
   }
 
   private updateUnderline() {
-    const selectedButton = this.listOfButtons[this.selectedIndex];
+    const selectedButton = this.buttons[this.selectedIndex];
     if (!selectedButton) return;
     const boundingRect = selectedButton.getBoundingClientRect();
     const containerRect = this.container.getBoundingClientRect();
