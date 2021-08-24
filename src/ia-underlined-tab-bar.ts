@@ -13,13 +13,13 @@ import {
 import { nothing } from 'lit-html';
 import './ia-underlined-tab-bar-loading-dots';
 
-export interface TopTab {
+export interface TabEntry {
   displayName: string;
 }
 
 @customElement('ia-underlined-tab-bar')
 export class UnderlinedTabBar extends LitElement {
-  @property({ type: Array }) entries: TopTab[] = [];
+  @property({ type: Array }) entries: TabEntry[] = [];
 
   @property({ type: Number }) selectedIndex = 0;
 
