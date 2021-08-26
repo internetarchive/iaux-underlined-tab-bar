@@ -1,29 +1,81 @@
-![Build Status](https://github.com/internetarchive/iaux-typescript-wc-template/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/internetarchive/underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
 
-# Internet Archive Typescript WebComponent Template
+# \<ia-underlined-tab-bar>
 
-This is a base template for creating Typescript WebComponents. It is based off of the [Open WebComponents generator](https://open-wc.org/docs/development/generator/) with some IA-specific customizations and some development niceities.
+![Underline Tab Bar](img/underline.png 'Underline Tab Bar')
 
-## Usage
+## Installation
 
-1. Click the "Use this Template" button in GitHub to create a new repository based on this one.
-2. Clone your new repo and update the things below:
+```bash
+npm install @internetarchive/underlined-tab-bar
+```
 
-### Things to update in your copy
-1. Remove this section
-2. Search for the strings `your-webcomponent` and `YourWebComponent` and those are most of the spots that need to be updated.
-3. `README.md` (this file). Update the readme in general, but also the badge URLs
-4. `package.json` Update the name and description
-5. Rename the `your-webcomponent.ts` and its associated `.test` file
+## Basic Usage
+
+```js
+<script>
+import '@internetarchive/underlined-tab-bar';
+</script>
+
+<ia-underlined-tab-bar
+        onitemclicked="itemClicked()"
+        entries="[
+          { displayName: 'UPLOADS' },
+          { displayName: 'POSTS' },
+          { displayName: 'REVIEWS' },
+          { displayName: 'COLLECTIONS' },
+          { displayName: 'LOANS' },
+          { displayName: 'WEB ARCHIVE' },
+        ]"
+      >
+      </ia-underlined-tab-bar>
+<script>
+function itemClicked(e) {
+    console.log(e.detail.index);
+  }
+</script>
+
+```
+
+## Advanced Usage
+
+```js
+// turn on loading state
+const tabBar = document.querySelector('ia-underlined-tab-bar');
+tabBar.isLoading = true;
+
+// resize underline
+tabBar.widthMultiplier = 0.8;
+
+// select an index
+tabBar.selectedIndex = 3;
+```
+
+see unit tests in example app for more usage examples
+
+### CSS Variables
+
+```css
+<style>
+/* Underline thickness */
+  ia-underlined-tab-bar {
+      --tabBarUnderlineThickness: 5px;
+    }
+</style>
+```
 
 ## Local Demo with `web-dev-server`
+
 ```bash
 yarn start
 ```
+
 To run a local development server that serves the basic demo located in `demo/index.html`
 
 ## Testing with Web Test Runner
+
 To run the suite of Web Test Runner tests, run
+
 ```bash
 yarn run test
 ```
@@ -35,28 +87,35 @@ yarn run test:watch
 ```
 
 ## Linting with ESLint, Prettier, and Types
+
 To scan the project for linting errors, run
+
 ```bash
 yarn run lint
 ```
 
 You can lint with ESLint and Prettier individually as well
+
 ```bash
 yarn run lint:eslint
 ```
+
 ```bash
 yarn run lint:prettier
 ```
 
 To automatically fix many linting errors, run
+
 ```bash
 yarn run format
 ```
 
 You can format using ESLint and Prettier individually as well
+
 ```bash
 yarn run format:eslint
 ```
+
 ```bash
 yarn run format:prettier
 ```

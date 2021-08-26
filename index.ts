@@ -1,1 +1,1 @@
-export { YourWebComponent } from './src/your-webcomponent';
+export { UnderlinedTabBar } from './src/ia-underlined-tab-bar';

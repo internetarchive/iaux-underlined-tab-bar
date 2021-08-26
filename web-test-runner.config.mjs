@@ -19,11 +19,11 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
   // concurrency: 1,
 
   /** Browsers to run tests on */
-  // browsers: [
-  //   playwrightLauncher({ product: 'chromium' }),
+   // browsers: [
+    //  playwrightLauncher({ product: 'chromium' }),
   //   playwrightLauncher({ product: 'firefox' }),
   //   playwrightLauncher({ product: 'webkit' }),
-  // ],
+   // ],
 
   // See documentation for all available options
 });
