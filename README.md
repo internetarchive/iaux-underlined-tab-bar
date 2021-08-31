@@ -1,8 +1,8 @@
-![Build Status](https://github.com/internetarchive/underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/internetarchive/iaux-underlined-tab-bar/actions/workflows/ci.yml/badge.svg)
 
 # \<ia-underlined-tab-bar>
 
-![Underline Tab Bar](img/underline.png 'Underline Tab Bar')
+![Underline Tab Bar](https://github.com/internetarchive/iaux-underlined-tab-bar/raw/main/img/underline.png 'Underline Tab Bar')
 
 ## Installation
 
