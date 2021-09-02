@@ -14,7 +14,7 @@ export class LoadingDots extends LitElement {
   }
 
   static get styles(): CSSResult {
-    const loadingDotColorCSS = css`var(--tabBarLoadingDotColor)`;
+    const loadingDotColorCSS = css`var(--tabBarLoadingDotColor, black)`;
     const loadingDotDiameterCSS = css`var(--tabBarLoadingDotDiameter, 10px)`;
     const loadingDotSpacingCSS = css`var(--tabBarLoadingDotSpacing, 14px)`;
     const loadingDotCountCSS = css`var(--tabBarLoadingDotCount, 3)`;

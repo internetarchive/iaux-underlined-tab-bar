@@ -120,10 +120,10 @@ export class UnderlinedTabBar extends LitElement {
     const lineThicknessCss = css`var(--tabBarUnderlineThickness, 5px)`;
     const tabFontSizeCss = css`var(--tabBarFontSize, 15px)`;
     const tabBarFontWeightCss = css`var(--tabBarFontWeight, 400)`;
-    const tabTextColorCss = css`var(--tabBarTextColor)`;
-    const underlineColorCss = css`var(--tabBarUnderlineColor)`;
-    const tabBarSelectedTextColorCss = css`var(--tabBarSelectedTextColor)`;
-    const tabBarHoverTextColorCss = css`var(--tabBarHoverTextColor)`;
+    const tabTextColorCss = css`var(--tabBarTextColor, black)`;
+    const underlineColorCss = css`var(--tabBarUnderlineColor, black)`;
+    const tabBarSelectedTextColorCss = css`var(--tabBarSelectedTextColor, black)`;
+    const tabBarHoverTextColorCss = css`var(--tabBarHoverTextColor, black)`;
     const buttonSpacingCss = css`var(--tabBarButtonSpacing, 10px)`;
     const underlineWidthCss = css`var(--tabBarUnderlineWidth, 0px)`;
     const tabBarUnderlineLeftPositionCss = css`var(--tabBarUnderlineLeftPosition, 0px)`;
