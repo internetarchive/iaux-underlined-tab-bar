@@ -1,1 +1,1 @@
-export { UnderlinedTabBar } from './src/ia-underlined-tab-bar';
+export { UnderlinedTabBar, TabEntry } from './src/ia-underlined-tab-bar';
